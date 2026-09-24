@@ -581,6 +581,50 @@
           </tbody>
         </table>
       </div>
+
+      <div class="callout callout-info" style="margin-top: 2rem;">
+        <h3 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--accent-blue);">
+          Showcase Presentation &amp; Shareable Cuts (ML-12 Deliverable)
+        </h3>
+        <p style="margin-bottom: 1rem; color: var(--text-secondary);">
+          Structured presentation and communication assets derived from the capstone findings, formatted for community sharing and technical interviews:
+        </p>
+
+        <h4 style="font-size: 0.95rem; font-weight: 600; margin-top: 1rem; color: var(--text-primary);">
+          5-Minute Showcase Demo Outline
+        </h4>
+        <ul style="margin-left: 1.25rem; margin-bottom: 1.25rem; font-size: 0.9rem; color: var(--text-secondary);">
+          <li><strong>0:00 - 1:00 (The Crisis &amp; Question):</strong> The editorial resource paradox (6–10 hours per net-new article vs 20–30 minutes per refresh). Formulating the triage question.</li>
+          <li><strong>1:00 - 2:00 (The Method &amp; Trap):</strong> 101,441 URLs from FlyRank's March 2026 warehouse across 35 client domains. Exposing 93% cross-client leakage in naive random splits and introducing our client-grouped validation design.</li>
+          <li><strong>2:00 - 3:00 (One Chart &amp; Honest Result):</strong> Decision Tree achieves 0.887 F1 and 0.941 ROC-AUC on completely unseen client domains, beating the heuristic rule baseline by +15.7 percentage points by preventing false rewrites on brand champions.</li>
+          <li><strong>3:00 - 4:15 (One Recommendation &amp; Playbook):</strong> Surfacing 33,893 Page-1 CTR deficit pages representing an estimated recoverable lift of +156,514 monthly organic clicks without creating new content.</li>
+          <li><strong>4:15 - 5:00 (Safety Guardrails &amp; Q&amp;A):</strong> Strict NO-GO list (no autonomous LLM publishing, protect champion pages, 30–45 day expiration window).</li>
+        </ul>
+
+        <h4 style="font-size: 0.95rem; font-weight: 600; margin-top: 1rem; color: var(--text-primary);">
+          Methodology Social Post Cut
+        </h4>
+        <pre class="citation-block" style="white-space: pre-wrap; font-size: 0.85rem; padding: 1rem;"><code>Most SEO machine learning models look amazing in notebooks — until they hit an unseen domain.
+
+During my FlyRank Machine Learning Internship, I audited our content triage model against 101,441 enterprise search URLs across 35 client domains. Our first critical finding? A standard random train/test split leaked 93% of client domains between train and test, creating an illusion of high generalization.
+
+When we rebuilt our validation around an honest client-grouped split (GroupKFold on client_id):
+- Our supervised Decision Tree maintained a 0.887 F1-score and 0.941 ROC-AUC on completely unseen client domains.
+- It outperformed traditional heuristic rules by +15.7 percentage points, primarily by protecting brand champion pages from destructive rewrites.
+- It prioritized 33,893 Page-1 URLs representing an estimated +156,514 recoverable monthly organic clicks.
+
+Full peer-audited research paper and code:
+https://djebrilsvn.github.io/flyrank-ml-internship/
+
+#MachineLearning #DataScience #SearchIntelligence #SEO #DuckDB #MLValidation</code></pre>
+
+        <h4 style="font-size: 0.95rem; font-weight: 600; margin-top: 1rem; color: var(--text-primary);">
+          3-Sentence Employer-Facing Summary
+        </h4>
+        <blockquote style="border-left: 3px solid var(--accent-blue); padding-left: 1rem; margin: 0.5rem 0; font-size: 0.9rem; color: var(--text-secondary); font-style: italic;">
+          &ldquo;I built an enterprise ML decision-support triage system that predicts underperforming search URLs and generates a prioritized, safety-governed refresh queue. Trained and evaluated on 101,441 URLs spanning 35 client domains from FlyRank's March 2026 production warehouse, it was validated under a strict client-grouped split (0 domain leakage) to guarantee real-world generalization. The resulting model achieved a 0.887 F1-score (+15.7 percentage points over heuristic baselines) and surfaced 33,893 Page-1 opportunity URLs with an estimated recoverable lift of +156,514 monthly organic clicks.&rdquo;
+        </blockquote>
+      </div>
     </section>
 
     <!-- SECTION 9: ACKNOWLEDGMENTS & DATA CREDIT -->
