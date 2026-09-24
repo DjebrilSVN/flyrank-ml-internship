@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Triage Over Tuning: Machine Learning for Content Action Prioritization Across 100,000 Enterprise URLs | FlyRank ML Capstone</title>
   <meta name="description" content="An empirical search intelligence study evaluating machine learning models against heuristic baselines across 101,441 enterprise URLs from FlyRank's research warehouse. Demonstrates a 0.887 F1-score and +156k recoverable monthly clicks.">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=3">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232563eb'/%3E%3Cpath d='M8 22V16M16 22V10M24 22V13' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -73,7 +73,12 @@
 
     <!-- SECTION 1: TITLE + ABSTRACT -->
     <section id="abstract" class="abstract-card">
-      <h3>1. Abstract</h3>
+      <div class="section-heading-wrapper" style="margin-bottom: 1.25rem;">
+        <div class="section-icon-badge" style="width:38px; height:38px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        </div>
+        <h3 style="font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: var(--accent-blue); margin-bottom: 0;">1. Abstract</h3>
+      </div>
       <p class="abstract-text">
         Enterprise digital marketing teams spend extensive resources drafting net-new web content while thousands of pre-existing ranking pages suffer from severe click-through deficits that could be remediated in minutes. 
         Using 101,441 verified enterprise search URLs spanning 44 corporate domains from FlyRank's March 2026 research warehouse, we investigate whether machine learning can systematically prioritize content refresh opportunities over traditional heuristic rules without disrupting high-performing champion pages. 
@@ -105,7 +110,12 @@
     <!-- SECTION 2: INTRODUCTION / PROBLEM STATEMENT -->
     <section id="problem" class="paper-section">
       <div class="section-number">Section 2</div>
-      <h2 class="section-heading">Introduction & Problem Statement</h2>
+      <div class="section-heading-wrapper">
+        <div class="section-icon-badge">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+        </div>
+        <h2 class="section-heading">Introduction & Problem Statement</h2>
+      </div>
       
       <p>
         In modern enterprise digital publishing, content strategy faces a fundamental resource allocation paradox. Editorial teams routinely invest 6 to 10 hours drafting, fact-checking, and designing each new long-form article. Once published, these new URLs enter an extended exploratory incubation window that can take 3 to 6 months to accumulate search authority, frequently yielding volatile ranking outcomes.
@@ -131,7 +141,12 @@
     <!-- SECTION 3: DATA PROVENANCE -->
     <section id="data" class="paper-section">
       <div class="section-number">Section 3</div>
-      <h2 class="section-heading">Data Provenance & Warehouse Contracts</h2>
+      <div class="section-heading-wrapper">
+        <div class="section-icon-badge">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+        </div>
+        <h2 class="section-heading">Data Provenance & Warehouse Contracts</h2>
+      </div>
 
       <p>
         All experiments in this paper were conducted on the March 2026 release of the FlyRank Enterprise Search Intelligence Warehouse (hosted on Hugging Face at <code>hf://datasets/FlyRank/internship-warehouse</code>). The primary analytical entity is the daily performance fact table: <code>fact_content_daily_performance</code> (partition <code>month=2026-03</code>).
@@ -201,7 +216,12 @@
     <!-- SECTION 4: METHODOLOGY & VALIDATION -->
     <section id="methodology" class="paper-section">
       <div class="section-number">Section 4</div>
-      <h2 class="section-heading">Methodology & Leakage Prevention Audit</h2>
+      <div class="section-heading-wrapper">
+        <div class="section-icon-badge">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg>
+        </div>
+        <h2 class="section-heading">Methodology & Leakage Prevention Audit</h2>
+      </div>
 
       <p>
         We formulate the opportunity identification task as a supervised decision problem: predicting whether a given URL is a high-yield candidate for human editorial review.
@@ -249,7 +269,12 @@
     <!-- SECTION 5: RESULTS -->
     <section id="results" class="paper-section">
       <div class="section-number">Section 5</div>
-      <h2 class="section-heading">Empirical Results: Model vs. Heuristic Baseline</h2>
+      <div class="section-heading-wrapper">
+        <div class="section-icon-badge">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        </div>
+        <h2 class="section-heading">Empirical Results: Model vs. Heuristic Baseline</h2>
+      </div>
 
       <p>
         We benchmarked our shallow Decision Tree classifier (restricted to <code>max_depth=3</code> for interpretability) against a heuristic rule baseline commonly deployed by enterprise SEO agencies. Both models were evaluated on the identical holdout test split of 20,296 URLs across 9 unseen enterprise domains.
@@ -317,7 +342,12 @@
     <!-- SECTION 6: LIMITATIONS & HONEST FRAMING -->
     <section id="limitations" class="paper-section">
       <div class="section-number">Section 6</div>
-      <h2 class="section-heading">Limitations & Honest Framing</h2>
+      <div class="section-heading-wrapper">
+        <div class="section-icon-badge">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        </div>
+        <h2 class="section-heading">Limitations & Honest Framing</h2>
+      </div>
 
       <p>
         To ensure scientific rigor and prevent operational overreach, we explicitly document the fundamental constraints of this methodology:
@@ -342,7 +372,12 @@
     <!-- SECTION 7: RANKED RECOMMENDATIONS (PLAYBOOK) -->
     <section id="playbook" class="paper-section">
       <div class="section-number">Section 7</div>
-      <h2 class="section-heading">Ranked Recommendations: The Content Action Playbook</h2>
+      <div class="section-heading-wrapper">
+        <div class="section-icon-badge">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
+        </div>
+        <h2 class="section-heading">Ranked Recommendations: The Content Action Playbook</h2>
+      </div>
 
       <p>
         Algorithmic scores must be translated into structured human actions. We map the 101,441 qualified content items into five operational action tiers with standardized reason codes:
@@ -413,18 +448,42 @@
         Prior to publishing any modification, editors must execute a 4-point verification:
       </p>
       <ul class="checklist">
-        <li><strong>Search Intent Alignment:</strong> Inspect live SERP to verify whether query intent is informational or transactional.</li>
-        <li><strong>Keyword Cannibalization Audit:</strong> Verify that no sister page on the same domain ranks higher for the primary query.</li>
-        <li><strong>SERP Feature Verification:</strong> Confirm whether an AI Overview or Knowledge Panel is suppressing click capture.</li>
-        <li><strong>Brand Voice & Factual Accuracy:</strong> Ensure new title tags do not introduce misleading claims or clickbait.</li>
+        <li>
+          <svg class="list-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span><strong>Search Intent Alignment:</strong> Inspect live SERP to verify whether query intent is informational or transactional.</span>
+        </li>
+        <li>
+          <svg class="list-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span><strong>Keyword Cannibalization Audit:</strong> Verify that no sister page on the same domain ranks higher for the primary query.</span>
+        </li>
+        <li>
+          <svg class="list-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span><strong>SERP Feature Verification:</strong> Confirm whether an AI Overview or Knowledge Panel is suppressing click capture.</span>
+        </li>
+        <li>
+          <svg class="list-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span><strong>Brand Voice & Factual Accuracy:</strong> Ensure new title tags do not introduce misleading claims or clickbait.</span>
+        </li>
       </ul>
 
       <h4 style="font-size: 1rem; font-weight: 600; color: var(--accent-rose); margin-top: 1.25rem;">Strict NO-GO List (Must NEVER Be Automated):</h4>
       <ul class="no-go-list">
-        <li><strong>No Autonomous Content Publishing:</strong> LLMs or automated pipelines must never rewrite and publish live webpage body text or headers to production without explicit human editorial sign-off.</li>
-        <li><strong>No Automated URL Deletions / 301 Redirects:</strong> Never unpublish or redirect URLs based solely on 30-day Search Console CTR. Low-traffic pages frequently fulfill critical legal, compliance, or assisted-conversion roles.</li>
-        <li><strong>No Alterations to Champion Pages:</strong> Pages classified under <code>protect_and_defend</code> must remain locked against automated or exploratory changes.</li>
-        <li><strong>No Mass Templated Rewrites:</strong> Never roll out batch title tag updates across hundreds of pages at once; updates must be tested in controlled cohorts of 20 to 50 URLs.</li>
+        <li>
+          <svg class="list-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+          <span><strong>No Autonomous Content Publishing:</strong> LLMs or automated pipelines must never rewrite and publish live webpage body text or headers to production without explicit human editorial sign-off.</span>
+        </li>
+        <li>
+          <svg class="list-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+          <span><strong>No Automated URL Deletions / 301 Redirects:</strong> Never unpublish or redirect URLs based solely on 30-day Search Console CTR. Low-traffic pages frequently fulfill critical legal, compliance, or assisted-conversion roles.</span>
+        </li>
+        <li>
+          <svg class="list-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+          <span><strong>No Alterations to Champion Pages:</strong> Pages classified under <code>protect_and_defend</code> must remain locked against automated or exploratory changes.</span>
+        </li>
+        <li>
+          <svg class="list-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+          <span><strong>No Mass Templated Rewrites:</strong> Never roll out batch title tag updates across hundreds of pages at once; updates must be tested in controlled cohorts of 20 to 50 URLs.</span>
+        </li>
       </ul>
 
       <h3 style="font-size: 1.15rem; font-weight: 600; margin: 1.5rem 0 0.5rem 0;">Monitoring & Staleness Triggers</h3>
@@ -436,7 +495,12 @@
     <!-- SECTION 8: REPRODUCIBILITY -->
     <section id="reproducibility" class="paper-section">
       <div class="section-number">Section 8</div>
-      <h2 class="section-heading">Reproducibility & Research Receipts</h2>
+      <div class="section-heading-wrapper">
+        <div class="section-icon-badge">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+        </div>
+        <h2 class="section-heading">Reproducibility & Research Receipts</h2>
+      </div>
 
       <p>
         Every computation, query, and metric in this paper is fully reproducible using open-source tools:
@@ -522,7 +586,12 @@
     <!-- SECTION 9: ACKNOWLEDGMENTS & DATA CREDIT -->
     <section id="acknowledgments" class="paper-section">
       <div class="section-number">Section 9</div>
-      <h2 class="section-heading">Acknowledgments & Data Credit</h2>
+      <div class="section-heading-wrapper">
+        <div class="section-icon-badge">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+        </div>
+        <h2 class="section-heading">Acknowledgments & Data Credit</h2>
+      </div>
 
       <div class="acknowledgments-card">
         <p style="font-size: 1.1rem; font-weight: 500; color: var(--text-primary); margin-bottom: 0.75rem;">
