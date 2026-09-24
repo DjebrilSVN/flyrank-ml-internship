@@ -6,7 +6,7 @@
   <title>Triage Over Tuning: Machine Learning for Content Action Prioritization Across 100,000 Enterprise URLs | FlyRank ML Capstone</title>
   <meta name="description" content="An empirical search intelligence study evaluating machine learning models against heuristic baselines across 101,441 enterprise URLs from FlyRank's research warehouse. Demonstrates a 0.887 F1-score and +156k recoverable monthly clicks.">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232563eb'/%3E%3Cpath d='M8 22V16M16 22V10M24 22V13' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
 </head>
 <body>
 
@@ -17,6 +17,7 @@
   <header class="site-header">
     <div class="nav-container">
       <a href="#abstract" class="brand">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
         <span>FlyRank Search Intelligence</span>
         <span class="badge-track">ML-11 Capstone</span>
       </a>
@@ -30,7 +31,9 @@
         <a href="#playbook">Playbook</a>
         <a href="#reproducibility">Code</a>
         <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode">
-          <span id="theme-icon">🌙</span> <span id="theme-text">Dark</span>
+          <svg id="theme-icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg id="theme-icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <span id="theme-text">Dark</span>
         </button>
       </nav>
     </div>
@@ -418,10 +421,10 @@
 
       <h4 style="font-size: 1rem; font-weight: 600; color: var(--accent-rose); margin-top: 1.25rem;">Strict NO-GO List (Must NEVER Be Automated):</h4>
       <ul class="no-go-list">
-        <li>❌ <strong>No Autonomous Content Publishing:</strong> LLMs or automated pipelines must never rewrite and publish live webpage body text or headers to production without explicit human editorial sign-off.</li>
-        <li>❌ <strong>No Automated URL Deletions / 301 Redirects:</strong> Never unpublish or redirect URLs based solely on 30-day Search Console CTR. Low-traffic pages frequently fulfill critical legal, compliance, or assisted-conversion roles.</li>
-        <li>❌ <strong>No Alterations to Champion Pages:</strong> Pages classified under <code>protect_and_defend</code> must remain locked against automated or exploratory changes.</li>
-        <li>❌ <strong>No Mass Templated Rewrites:</strong> Never roll out batch title tag updates across hundreds of pages at once; updates must be tested in controlled cohorts of 20 to 50 URLs.</li>
+        <li><strong>No Autonomous Content Publishing:</strong> LLMs or automated pipelines must never rewrite and publish live webpage body text or headers to production without explicit human editorial sign-off.</li>
+        <li><strong>No Automated URL Deletions / 301 Redirects:</strong> Never unpublish or redirect URLs based solely on 30-day Search Console CTR. Low-traffic pages frequently fulfill critical legal, compliance, or assisted-conversion roles.</li>
+        <li><strong>No Alterations to Champion Pages:</strong> Pages classified under <code>protect_and_defend</code> must remain locked against automated or exploratory changes.</li>
+        <li><strong>No Mass Templated Rewrites:</strong> Never roll out batch title tag updates across hundreds of pages at once; updates must be tested in controlled cohorts of 20 to 50 URLs.</li>
       </ul>
 
       <h3 style="font-size: 1.15rem; font-weight: 600; margin: 1.5rem 0 0.5rem 0;">Monitoring & Staleness Triggers</h3>
@@ -581,7 +584,8 @@
 
     // Theme Toggle
     const toggleBtn = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
+    const moonIcon = document.getElementById('theme-icon-moon');
+    const sunIcon = document.getElementById('theme-icon-sun');
     const themeText = document.getElementById('theme-text');
     const htmlElement = document.documentElement;
 
@@ -600,10 +604,12 @@
 
     function updateThemeUI(theme) {
       if (theme === 'dark') {
-        themeIcon.textContent = '☀️';
+        if (moonIcon) moonIcon.style.display = 'none';
+        if (sunIcon) sunIcon.style.display = 'inline-block';
         themeText.textContent = 'Light';
       } else {
-        themeIcon.textContent = '🌙';
+        if (sunIcon) sunIcon.style.display = 'none';
+        if (moonIcon) moonIcon.style.display = 'inline-block';
         themeText.textContent = 'Dark';
       }
     }
