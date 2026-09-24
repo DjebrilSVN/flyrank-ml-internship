@@ -1,0 +1,10 @@
+{
+  "total_scored": 101441,
+  "reason_code_counts": {
+    "review_ctr": 63662,
+    "quick_win_opportunity": 23218,
+    "ctr_fix_and_quick_win": 14561
+  },
+  "median_score": 890.0,
+  "top1_score": 617124.0
+}
