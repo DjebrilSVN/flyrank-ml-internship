@@ -529,16 +529,18 @@
           We extend our sincere gratitude to the engineering and research teams at <a href="https://flyrank.ai/" target="_blank" rel="noopener">FlyRank</a> for curating and releasing the enterprise search intelligence warehouse dataset, and for establishing rigorous benchmarks for honest machine learning in organic search discoverability.
         </p>
 
-        <div class="citation-block">
-@techreport{djebril2026triage,
+        <div class="citation-header">
+          <span class="citation-label">BibTeX Citation</span>
+          <button id="copy-citation-btn" class="copy-btn" onclick="copyCitation()">Copy BibTeX</button>
+        </div>
+        <pre class="citation-block"><code id="citation-code">@techreport{djebril2026triage,
   title       = {Triage Over Tuning: Machine Learning for Content Action Prioritization Across 100,000 Enterprise URLs},
   author      = {Djebril},
   institution = {FlyRank Machine Learning Internship Program},
   month       = {March},
   year        = {2026},
   url         = {https://djebrilsvn.github.io/flyrank-ml-internship/}
-}
-        </div>
+}</code></pre>
       </div>
     </section>
 
@@ -546,7 +548,7 @@
 
   <!-- Footer -->
   <footer class="site-footer">
-    <div style="max-width: 980px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+    <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
       <div>
         <strong>Google Search Ranking & Discoverability Capstone</strong> · FlyRank ML Internship 2026
       </div>
@@ -559,6 +561,16 @@
 
   <!-- Script for Progress Bar & Theme Toggle -->
   <script>
+    // Copy Citation Helper
+    function copyCitation() {
+      const code = document.getElementById('citation-code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        const btn = document.getElementById('copy-citation-btn');
+        btn.textContent = 'Copied!';
+        setTimeout(() => { btn.textContent = 'Copy BibTeX'; }, 2000);
+      });
+    }
+
     // Reading Progress Bar
     window.addEventListener('scroll', () => {
       const winScroll = document.documentElement.scrollTop || document.body.scrollTop;

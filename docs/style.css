@@ -93,29 +93,29 @@ body {
 }
 
 .nav-container {
-  max-width: 1080px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0.75rem 1.5rem;
+  padding: 0.85rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .brand {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--text-primary);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
   text-decoration: none;
 }
 
 .brand span.badge-track {
   background-color: var(--accent-light);
   color: var(--accent-blue);
-  padding: 0.15rem 0.5rem;
+  padding: 0.2rem 0.6rem;
   border-radius: var(--radius-sm);
   font-size: 0.75rem;
   font-weight: 600;
@@ -124,13 +124,13 @@ body {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 .nav-links a {
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   font-weight: 500;
   transition: color 0.2s ease;
 }
@@ -144,12 +144,12 @@ body {
   border: 1px solid var(--border-light);
   color: var(--text-secondary);
   border-radius: var(--radius-sm);
-  padding: 0.4rem 0.75rem;
+  padding: 0.45rem 0.85rem;
   cursor: pointer;
   font-size: 0.85rem;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
   transition: all 0.2s ease;
 }
 
@@ -160,9 +160,9 @@ body {
 
 /* Paper Container */
 .paper-wrapper {
-  max-width: 980px;
-  margin: 2rem auto 4rem auto;
-  padding: 0 1.5rem;
+  max-width: 1240px;
+  margin: 2.5rem auto 5rem auto;
+  padding: 0 2rem;
 }
 
 /* Hero Section */
@@ -170,7 +170,7 @@ body {
   background: var(--bg-surface);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
-  padding: 3rem 2.5rem;
+  padding: 3.5rem 3.5rem;
   margin-bottom: 2.5rem;
   box-shadow: var(--shadow-sm);
   position: relative;
@@ -306,7 +306,7 @@ body {
   border: 1px solid var(--border-light);
   border-left: 4px solid var(--accent-blue);
   border-radius: var(--radius-md);
-  padding: 2rem;
+  padding: 2.75rem 3.5rem;
   margin-bottom: 2.5rem;
   box-shadow: var(--shadow-sm);
 }
@@ -322,17 +322,17 @@ body {
 
 .abstract-text {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
-  line-height: 1.7;
+  font-size: 1.18rem;
+  line-height: 1.75;
   color: var(--text-primary);
 }
 
 .abstract-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
+  gap: 1.5rem;
+  margin-top: 1.75rem;
+  padding-top: 1.75rem;
   border-top: 1px dashed var(--border-light);
 }
 
@@ -342,7 +342,7 @@ body {
 }
 
 .stat-value {
-  font-size: 1.5rem;
+  font-size: 1.65rem;
   font-weight: 700;
   color: var(--text-primary);
 }
@@ -359,8 +359,8 @@ body {
   background-color: var(--bg-surface);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
-  padding: 2.25rem 2.25rem;
-  margin-bottom: 2rem;
+  padding: 3rem 3.5rem;
+  margin-bottom: 2.5rem;
   box-shadow: var(--shadow-sm);
 }
 
@@ -582,11 +582,11 @@ code {
 
 /* Citations & Footer */
 .acknowledgments-card {
-  background-color: #f8fafc;
+  background-color: var(--bg-surface);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
-  padding: 1.75rem;
-  margin-top: 3rem;
+  padding: 2.5rem 3rem;
+  margin-top: 1.5rem;
   text-align: center;
 }
 
@@ -594,17 +594,61 @@ code {
   background-color: #111827;
 }
 
+.citation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 0.65rem;
+  padding: 0 0.25rem;
+}
+
+.citation-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+}
+
+.copy-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  padding: 0.35rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+  background: var(--bg-subtle);
+  color: var(--accent-blue);
+  border-color: var(--accent-blue);
+}
+
 .citation-block {
   background: var(--bg-subtle);
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
-  padding: 1rem;
+  padding: 1.35rem 1.75rem;
   font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--text-primary);
   overflow-x: auto;
   text-align: left;
-  margin-top: 1rem;
+  white-space: pre;
+  tab-size: 2;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] .citation-block {
+  background: #0b1120;
+  border-color: #1e293b;
+  color: #e2e8f0;
 }
 
 .site-footer {
