@@ -1,0 +1,12 @@
+{
+  "total_items_analyzed": 101441,
+  "distinct_clients": 44,
+  "test_set_size": 7038,
+  "test_clients_unseen": 9,
+  "baseline_f1": 0.839,
+  "decision_tree_f1": 0.94,
+  "decision_tree_roc_auc": 0.997,
+  "page1_deficit_items": 33893,
+  "estimated_monthly_click_lift": 156514,
+  "reproducibility_seed": 42
+}

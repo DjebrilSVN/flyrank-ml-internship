@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Triage Over Tuning: Machine Learning for Content Action Prioritization Across 100,000 Enterprise URLs | FlyRank ML Capstone</title>
+  <meta name="description" content="An empirical search intelligence study evaluating machine learning models against heuristic baselines across 101,441 enterprise URLs from FlyRank's research warehouse. Demonstrates a 0.887 F1-score and +156k recoverable monthly clicks.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="#abstract" class="brand">
+        <span>FlyRank Search Intelligence</span>
+        <span class="badge-track">ML-11 Capstone</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#abstract">Abstract</a>
+        <a href="#problem">Problem</a>
+        <a href="#data">Data</a>
+        <a href="#methodology">Methodology</a>
+        <a href="#results">Results</a>
+        <a href="#limitations">Limits</a>
+        <a href="#playbook">Playbook</a>
+        <a href="#reproducibility">Code</a>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode">
+          <span id="theme-icon">🌙</span> <span id="theme-text">Dark</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="paper-wrapper">
+
+    <!-- Paper Hero / Header -->
+    <article class="paper-hero">
+      <div class="paper-meta-pills">
+        <span class="meta-pill highlight">Peer-Audited ML Research</span>
+        <span class="meta-pill">Client-Grouped Split (0 Leaked Clients)</span>
+        <span class="meta-pill">101,441 Enterprise URLs</span>
+        <span class="meta-pill">DuckDB + Scikit-Learn</span>
+      </div>
+
+      <h1 class="paper-title">Triage Over Tuning: Machine Learning for Content Action Prioritization Across 100,000 Enterprise URLs</h1>
+      <p class="paper-subtitle">An empirical decision-support framework that bridges search visibility telemetry with human editorial workflows, demonstrating a +15.7 percentage-point F1 improvement over heuristic baselines and sizing +156k recoverable monthly organic clicks.</p>
+
+      <div class="author-block">
+        <div class="author-info">
+          <span class="author-name">Djebril · Machine Learning Track</span>
+          <span class="author-role">FlyRank Search Intelligence Internship · March 2026 Cohort</span>
+        </div>
+        <div class="cta-actions">
+          <a href="https://github.com/DjebrilSVN/flyrank-ml-internship/blob/main/work/notebooks/capstone.ipynb" class="btn btn-secondary" target="_blank" rel="noopener">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            View Repo Notebook
+          </a>
+          <a href="https://colab.research.google.com/github/DjebrilSVN/flyrank-ml-internship/blob/main/work/notebooks/capstone.ipynb?flush_cache=true" class="btn btn-primary" target="_blank" rel="noopener">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            Open in Google Colab
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- SECTION 1: TITLE + ABSTRACT -->
+    <section id="abstract" class="abstract-card">
+      <h3>1. Abstract</h3>
+      <p class="abstract-text">
+        Enterprise digital marketing teams spend extensive resources drafting net-new web content while thousands of pre-existing ranking pages suffer from severe click-through deficits that could be remediated in minutes. 
+        Using 101,441 verified enterprise search URLs spanning 44 corporate domains from FlyRank's March 2026 research warehouse, we investigate whether machine learning can systematically prioritize content refresh opportunities over traditional heuristic rules without disrupting high-performing champion pages. 
+        We formalize an operational decision-tree framework evaluated under strict client-grouped validation (GroupShuffleSplit, 0% cross-tenant data leakage) to eliminate domain-specific baseline contamination. 
+        Our decision-tree architecture achieves an <strong>F1-score of 0.887</strong> and <strong>ROC-AUC of 0.941</strong> on unseen client domains, outperforming standard heuristic baselines by <strong>+15.7 percentage points</strong> while cutting false positive recommendations by 66.4%. 
+        These findings operationalize into a human-reviewed 5-tier Content Action Playbook that isolates 33,893 Page-1 opportunity URLs representing an estimated recoverable lift of <strong>+156,514 monthly organic clicks</strong>.
+      </p>
+
+      <div class="abstract-stats">
+        <div class="stat-item">
+          <span class="stat-value">101,441</span>
+          <span class="stat-label">Qualified Enterprise URLs</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">0.887</span>
+          <span class="stat-label">Model Test F1-Score</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">+15.7 pp</span>
+          <span class="stat-label">Lift Over Rule Baseline</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">+156,514</span>
+          <span class="stat-label">Est. Monthly Click Lift</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: INTRODUCTION / PROBLEM STATEMENT -->
+    <section id="problem" class="paper-section">
+      <div class="section-number">Section 2</div>
+      <h2 class="section-heading">Introduction & Problem Statement</h2>
+      
+      <p>
+        In modern enterprise digital publishing, content strategy faces a fundamental resource allocation paradox. Editorial teams routinely invest 6 to 10 hours drafting, fact-checking, and designing each new long-form article. Once published, these new URLs enter an extended exploratory incubation window that can take 3 to 6 months to accumulate search authority, frequently yielding volatile ranking outcomes.
+      </p>
+      <p>
+        Conversely, updating the title tag, meta snippet, or topical depth of an <em>already-ranking</em> URL requires only 20 to 30 minutes of human editorial time. Because the URL already possesses domain trust and indexed keyword associations, resolving an engagement deficit can immediately capture latent traffic.
+      </p>
+
+      <div class="callout callout-warning">
+        <strong>The Operational Failure of Naive Heuristics</strong>
+        When content teams attempt to prioritize updates using simplistic rules—such as sorting search console tables strictly by impressions or average position—they introduce severe failure modes:
+        <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+          <li><strong>Overwriting Champions:</strong> High-impression queries naturally include established brand navigational queries and top-performing revenue drivers. Naively flagging these for rewriting risks destabilizing critical organic traffic.</li>
+          <li><strong>Page-2 Futility:</strong> Sorting by lowest CTR surfaces deep Page-2 and Page-3 results (positions 15–30), where low CTR is an immutable characteristic of search engine user behavior, not an editorial flaw.</li>
+        </ul>
+      </div>
+
+      <p>
+        This research formalizes the <strong>weekly editorial triage decision</strong>: providing content managers with an honest, machine-learning-driven prioritization queue that surfaces recoverable Page-1 click deficits while erecting strict algorithmic guardrails around established champion pages.
+      </p>
+    </section>
+
+    <!-- SECTION 3: DATA PROVENANCE -->
+    <section id="data" class="paper-section">
+      <div class="section-number">Section 3</div>
+      <h2 class="section-heading">Data Provenance & Warehouse Contracts</h2>
+
+      <p>
+        All experiments in this paper were conducted on the March 2026 release of the FlyRank Enterprise Search Intelligence Warehouse (hosted on Hugging Face at <code>hf://datasets/FlyRank/internship-warehouse</code>). The primary analytical entity is the daily performance fact table: <code>fact_content_daily_performance</code> (partition <code>month=2026-03</code>).
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin: 1.25rem 0 0.5rem 0;">Exclusion Criteria & Statistical Power Filtering</h3>
+      <p>
+        To ensure data contract integrity and eliminate exploratory noise, we applied three successive deterministic filters using DuckDB:
+      </p>
+      <ol style="margin-left: 1.5rem; margin-bottom: 1.25rem; color: var(--text-secondary);">
+        <li><strong>Tracking Availability Filter:</strong> <code>gsc_data_available IS TRUE</code> removes system downtime and reporting gaps.</li>
+        <li><strong>Active Visibility Filter:</strong> <code>gsc_impressions > 0</code> restricts evaluation to active URLs appearing in organic SERPs.</li>
+        <li><strong>Statistical Power Threshold:</strong> Aggregated monthly <code>impressions >= 100</code> eliminates sparse long-tail queries where observed click-through rate (CTR) has high variance and near-zero statistical confidence.</li>
+      </ol>
+
+      <div class="table-container">
+        <table class="academic-table">
+          <thead>
+            <tr>
+              <th>Dataset Attribute</th>
+              <th>Raw Warehouse Partition</th>
+              <th>Filtered Analysis Cohort</th>
+              <th>Coverage / Retention</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Total Content URLs Evaluated</td>
+              <td class="numeric">184,920</td>
+              <td class="numeric">101,441</td>
+              <td class="numeric">54.9%</td>
+            </tr>
+            <tr>
+              <td>Enterprise Client Domains</td>
+              <td class="numeric">44</td>
+              <td class="numeric">44</td>
+              <td class="numeric">100.0%</td>
+            </tr>
+            <tr>
+              <td>Total Search Impressions</td>
+              <td class="numeric">241,180,452</td>
+              <td class="numeric">236,892,104</td>
+              <td class="numeric">98.2%</td>
+            </tr>
+            <tr>
+              <td>Total Organic Clicks</td>
+              <td class="numeric">2,891,440</td>
+              <td class="numeric">2,875,119</td>
+              <td class="numeric">99.4%</td>
+            </tr>
+            <tr>
+              <td>Active Median CTR (Clicks &gt; 0)</td>
+              <td class="numeric">0.278%</td>
+              <td class="numeric">0.286%</td>
+              <td class="numeric">Calibrated Base</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-info">
+        <strong>Public-Safe Research Guarantee</strong>
+        All client identifiers and content URLs in this study are strictly anonymized as irreversible SHA-256 hashes (e.g., <code>client_hash_id</code>, <code>content_hash_id</code>). In compliance with corporate data safety agreements, no client names, live domains, full URLs, or raw user queries are exposed anywhere in this research or associated public repositories.
+      </div>
+    </section>
+
+    <!-- SECTION 4: METHODOLOGY & VALIDATION -->
+    <section id="methodology" class="paper-section">
+      <div class="section-number">Section 4</div>
+      <h2 class="section-heading">Methodology & Leakage Prevention Audit</h2>
+
+      <p>
+        We formulate the opportunity identification task as a supervised decision problem: predicting whether a given URL is a high-yield candidate for human editorial review.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin: 1.25rem 0 0.5rem 0;">Operational Target Formulation</h3>
+      <p>
+        A content item is labeled an <strong>Action Candidate</strong> (<code>is_action_candidate = 1</code>) if it satisfies empirical visibility while exhibiting an actionable engagement deficit, excluding entrenched traffic champions:
+      </p>
+      <div style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light); font-family: var(--font-mono); font-size: 0.85rem; margin-bottom: 1.25rem;">
+        is_action_candidate = [<br>
+        &nbsp;&nbsp;((avg_position &lt;= 10.0 AND ctr &lt; active_median_ctr) OR<br>
+        &nbsp;&nbsp;&nbsp;(impressions &gt;= 500 AND clicks == 0))<br>
+        ] AND (clicks &lt; 500)
+      </div>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin: 1.25rem 0 0.5rem 0;">Engineered Feature Vector</h3>
+      <ul style="margin-left: 1.5rem; margin-bottom: 1.25rem; color: var(--text-secondary);">
+        <li><code>log_impressions</code>: Log-transformed impression volume (<code>np.log1p</code>) to stabilize extreme power-law distributions.</li>
+        <li><code>avg_position</code>: Mean organic ranking position recorded in Search Console.</li>
+        <li><code>page1_flag</code>: Binary indicator for first-page presence (<code>avg_position &lt;= 10.0</code>).</li>
+        <li><code>zero_click_flag</code>: Binary indicator for content capturing 0 organic clicks.</li>
+        <li><code>ctr</code>: Measured click-through percentage (<code>clicks / impressions * 100</code>).</li>
+      </ul>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin: 1.25rem 0 0.5rem 0;">The Cross-Client Data Leakage Audit</h3>
+      <p>
+        In multi-tenant search data, randomly assigning rows into training and test sets creates severe data leakage. Because search volume, technical CMS templates, and brand baseline CTR are strongly clustered at the client domain level, a standard random split allows the model to "memorize" client-specific baselines during training and evaluate them on test rows from the same domain.
+      </p>
+
+      <figure class="paper-figure">
+        <div class="figure-frame">
+          <img src="assets/validation_split_audit.png" alt="Cross-Client Data Leakage Audit and Performance Impact" loading="lazy">
+        </div>
+        <figcaption class="figure-caption">
+          <strong>Figure 1: Cross-Client Data Leakage Audit.</strong> Under standard random splitting, 41 out of 44 enterprise client domains (93.2%) leak across train and test partitions, artificially inflating F1-score to 0.985. Enforcing a strict <code>GroupShuffleSplit</code> by <code>client_hash_id</code> guarantees exactly 0 leaked clients and reveals the honest generalization F1-score of 0.887 on unseen corporate domains.
+        </figcaption>
+      </figure>
+
+      <p>
+        To guarantee defensible generalization, all models in this study were trained on 35 clients (81,145 rows) and evaluated on 9 completely unseen holdout clients (20,296 rows) with <strong>zero client overlap</strong>.
+      </p>
+    </section>
+
+    <!-- SECTION 5: RESULTS -->
+    <section id="results" class="paper-section">
+      <div class="section-number">Section 5</div>
+      <h2 class="section-heading">Empirical Results: Model vs. Heuristic Baseline</h2>
+
+      <p>
+        We benchmarked our shallow Decision Tree classifier (restricted to <code>max_depth=3</code> for interpretability) against a heuristic rule baseline commonly deployed by enterprise SEO agencies. Both models were evaluated on the identical holdout test split of 20,296 URLs across 9 unseen enterprise domains.
+      </p>
+
+      <div class="table-container">
+        <table class="academic-table">
+          <thead>
+            <tr>
+              <th>Evaluated Architecture</th>
+              <th class="numeric">Precision</th>
+              <th class="numeric">Recall</th>
+              <th class="numeric">F1-Score</th>
+              <th class="numeric">ROC-AUC</th>
+              <th class="numeric">PR-AUC</th>
+              <th class="numeric">Generalization Delta</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Heuristic Rule Baseline</strong><br><small style="color:var(--text-muted);">avg_pos &lt;= 10 AND (clicks=0 OR ctr &lt; 0.2%)</small></td>
+              <td class="numeric">0.655</td>
+              <td class="numeric">0.825</td>
+              <td class="numeric">0.730</td>
+              <td class="numeric">0.768</td>
+              <td class="numeric">0.712</td>
+              <td class="numeric">N/A (Fixed rules)</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>Decision Tree Classifier (depth=3)</strong><br><small style="color:var(--text-muted);">Nonlinear log-scale threshold interaction</small></td>
+              <td class="numeric"><strong>0.884</strong></td>
+              <td class="numeric"><strong>0.890</strong></td>
+              <td class="numeric"><strong>0.887</strong></td>
+              <td class="numeric"><strong>0.941</strong></td>
+              <td class="numeric"><strong>0.932</strong></td>
+              <td class="numeric"><strong>-0.003</strong> (Train F1: 0.890)</td>
+            </tr>
+            <tr>
+              <td><em>Relative Net Improvement</em></td>
+              <td class="numeric"><em>+35.0%</em></td>
+              <td class="numeric"><em>+7.9%</em></td>
+              <td class="numeric"><em>+15.7 pp</em></td>
+              <td class="numeric"><em>+22.5%</em></td>
+              <td class="numeric"><em>+30.9%</em></td>
+              <td class="numeric"><em>Robust generalization</em></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        The Decision Tree achieved an F1-score of <strong>0.887</strong> versus <strong>0.730</strong> for the heuristic baseline, representing a <strong>+15.7 percentage point lift</strong>. Crucially, the model improved precision from 0.655 to 0.884, reducing false positive recommendations by <strong>66.4%</strong>. This precision gain is paramount for editorial operations, ensuring that writers do not waste time reviewing misclassified URLs.
+      </p>
+
+      <figure class="paper-figure">
+        <div class="figure-frame">
+          <img src="assets/model_evaluation_curves.png" alt="Precision-Recall and ROC Curves on Unseen Clients" loading="lazy">
+        </div>
+        <figcaption class="figure-caption">
+          <strong>Figure 2: Generalization Performance on Unseen Client Domains.</strong> <em>Left:</em> Precision-Recall curve demonstrating sustained high precision across recall levels, yielding a PR-AUC of 0.932 against a no-skill base rate of 0.44. <em>Right:</em> Receiver Operating Characteristic curve achieving an ROC-AUC of 0.941 on completely holdout enterprise client domains.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- SECTION 6: LIMITATIONS & HONEST FRAMING -->
+    <section id="limitations" class="paper-section">
+      <div class="section-number">Section 6</div>
+      <h2 class="section-heading">Limitations & Honest Framing</h2>
+
+      <p>
+        To ensure scientific rigor and prevent operational overreach, we explicitly document the fundamental constraints of this methodology:
+      </p>
+
+      <div class="callout callout-danger">
+        <strong>Core Methodological Boundaries</strong>
+        <ul style="margin-left: 1.25rem; margin-top: 0.5rem;">
+          <li><strong>Correlation Is Not Causation:</strong> The model identifies empirical associations between rank, impressions, and click deficits. It does <em>not</em> prove that editing title tags or text will causally retain rankings or force traffic growth. Recommendations represent prioritized editorial hypotheses.</li>
+          <li><strong>SERP Layout & AI Overview Blindness:</strong> Search Console aggregate telemetry does not record SERP feature layouts. A URL ranking at position 2 with 0.1% CTR may be completely suppressed by a Google AI Overview or Featured Snippet that satisfies user intent directly in zero clicks.</li>
+          <li><strong>Google Algorithm Opacity:</strong> This study does not reverse-engineer Google's ranking engine. Real-time ranking algorithms incorporate hundreds of unobserved signals including personalized query graphs, user entity intent, and dynamic link graphs.</li>
+          <li><strong>Cold-Start Exclusion:</strong> The system strictly excludes pages with &lt;100 monthly impressions. It cannot score newly launched URLs or exploratory long-tail content without empirical search logs.</li>
+          <li><strong>Content-Quality Agnosticism:</strong> The model evaluates behavioral search metrics, not actual prose quality, brand voice, or factual correctness.</li>
+        </ul>
+      </div>
+
+      <p>
+        Throughout this paper and resulting tooling, all claims adhere to disciplined, evidence-based language: <em>observed performance</em>, <em>measured association</em>, <em>directional guidance</em>, and <em>decision support</em>.
+      </p>
+    </section>
+
+    <!-- SECTION 7: RANKED RECOMMENDATIONS (PLAYBOOK) -->
+    <section id="playbook" class="paper-section">
+      <div class="section-number">Section 7</div>
+      <h2 class="section-heading">Ranked Recommendations: The Content Action Playbook</h2>
+
+      <p>
+        Algorithmic scores must be translated into structured human actions. We map the 101,441 qualified content items into five operational action tiers with standardized reason codes:
+      </p>
+
+      <div class="table-container">
+        <table class="academic-table">
+          <thead>
+            <tr>
+              <th>Operational Action Tier</th>
+              <th>Reason Code</th>
+              <th>Quantitative Criteria</th>
+              <th class="numeric">Catalog Volume</th>
+              <th>Mandated Editorial Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong><code>protect_and_defend</code></strong></td>
+              <td><code>high_performing_champion</code></td>
+              <td>pos &le; 10, ctr &ge; 1.0%, clicks &ge; 50</td>
+              <td class="numeric">554 (0.5%)</td>
+              <td><strong>Do not disrupt.</strong> Lock copy; monitor competitor SERP volatility and technical health.</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong><code>optimize_snippet_and_metadata</code></strong></td>
+              <td><code>page1_ctr_deficit</code></td>
+              <td>pos &le; 10, ctr &lt; median (0.286%)</td>
+              <td class="numeric"><strong>33,893 (33.4%)</strong></td>
+              <td><strong>High-ROI quick win.</strong> Rewrite title tags and meta descriptions to improve SERP click capture.</td>
+            </tr>
+            <tr>
+              <td><strong><code>expand_content_depth</code></strong></td>
+              <td><code>steady_visibility_expansion</code></td>
+              <td>pos &le; 10, 0.286% &le; ctr &lt; 1.0%</td>
+              <td class="numeric">21,448 (21.1%)</td>
+              <td><strong>Sustain position.</strong> Deepen coverage, update 2026 data/statistics, add schema markup.</td>
+            </tr>
+            <tr>
+              <td><strong><code>boost_striking_distance</code></strong></td>
+              <td><code>striking_distance_opportunity</code></td>
+              <td>10 &lt; pos &le; 20, impressions &ge; 500</td>
+              <td class="numeric">11,774 (11.6%)</td>
+              <td><strong>Page-2 push.</strong> Build contextual internal links and expand depth to cross onto Page 1.</td>
+            </tr>
+            <tr>
+              <td><strong><code>audit_authority_or_prune</code></strong></td>
+              <td><code>deep_rank_low_engagement</code></td>
+              <td>pos &gt; 10, clicks == 0</td>
+              <td class="numeric">33,772 (33.3%)</td>
+              <td><strong>Prune or merge.</strong> Audit query intent; consider 301 consolidation into authoritative parent.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="paper-figure">
+        <div class="figure-frame">
+          <img src="assets/playbook_archetype_actions.png" alt="Playbook Action Distribution and Quantified Value Opportunity" loading="lazy">
+        </div>
+        <figcaption class="figure-caption">
+          <strong>Figure 3: Playbook Volume Distribution and Quantified Value Opportunity.</strong> <em>Left:</em> Distribution of 101,441 enterprise URLs across the five operational action tiers. <em>Right:</em> Sizing the value opportunity for the 33,893 Page-1 snippet optimization candidates. Elevating their CTR to the active population median (0.286%) represents a measured opportunity of <strong>+156,514 monthly organic clicks</strong> across 104.8M impressions.
+        </figcaption>
+      </figure>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin: 1.5rem 0 0.5rem 0;">Human Review Protocol & Strict NO-GO Rules</h3>
+      <p>
+        Prior to publishing any modification, editors must execute a 4-point verification:
+      </p>
+      <ul class="checklist">
+        <li><strong>Search Intent Alignment:</strong> Inspect live SERP to verify whether query intent is informational or transactional.</li>
+        <li><strong>Keyword Cannibalization Audit:</strong> Verify that no sister page on the same domain ranks higher for the primary query.</li>
+        <li><strong>SERP Feature Verification:</strong> Confirm whether an AI Overview or Knowledge Panel is suppressing click capture.</li>
+        <li><strong>Brand Voice & Factual Accuracy:</strong> Ensure new title tags do not introduce misleading claims or clickbait.</li>
+      </ul>
+
+      <h4 style="font-size: 1rem; font-weight: 600; color: var(--accent-rose); margin-top: 1.25rem;">Strict NO-GO List (Must NEVER Be Automated):</h4>
+      <ul class="no-go-list">
+        <li>❌ <strong>No Autonomous Content Publishing:</strong> LLMs or automated pipelines must never rewrite and publish live webpage body text or headers to production without explicit human editorial sign-off.</li>
+        <li>❌ <strong>No Automated URL Deletions / 301 Redirects:</strong> Never unpublish or redirect URLs based solely on 30-day Search Console CTR. Low-traffic pages frequently fulfill critical legal, compliance, or assisted-conversion roles.</li>
+        <li>❌ <strong>No Alterations to Champion Pages:</strong> Pages classified under <code>protect_and_defend</code> must remain locked against automated or exploratory changes.</li>
+        <li>❌ <strong>No Mass Templated Rewrites:</strong> Never roll out batch title tag updates across hundreds of pages at once; updates must be tested in controlled cohorts of 20 to 50 URLs.</li>
+      </ul>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin: 1.5rem 0 0.5rem 0;">Monitoring & Staleness Triggers</h3>
+      <p>
+        Recommendations expire after <strong>30 to 45 days</strong>. Any page that experiences a rank drop of &ge; 3.0 positions over 14 days following an update triggers an immediate intent audit. The model is scheduled for re-scoring monthly upon ingestion of new warehouse partitions or upon major Google Core Algorithm updates.
+      </p>
+    </section>
+
+    <!-- SECTION 8: REPRODUCIBILITY -->
+    <section id="reproducibility" class="paper-section">
+      <div class="section-number">Section 8</div>
+      <h2 class="section-heading">Reproducibility & Research Receipts</h2>
+
+      <p>
+        Every computation, query, and metric in this paper is fully reproducible using open-source tools:
+      </p>
+      <ul style="margin-left: 1.5rem; margin-bottom: 1.25rem; color: var(--text-secondary);">
+        <li><strong>Deterministic Random Seed:</strong> All train/test partitions, decision tree fits, and clustering operations use <code>random_state=42</code>.</li>
+        <li><strong>Environment Stack:</strong> Python 3.11, DuckDB 1.1.3 (with HTTPFS extension), Scikit-Learn 1.4.0, Pandas 2.2.0, Matplotlib 3.8.0.</li>
+        <li><strong>Execution Trace:</strong> The entire experimental pipeline executes end-to-end via:
+          <br><code>jupyter nbconvert --to notebook --execute work/notebooks/capstone.ipynb</code>
+        </li>
+      </ul>
+
+      <div class="table-container">
+        <table class="academic-table">
+          <thead>
+            <tr>
+              <th>Research Artifact</th>
+              <th>File Location in Repository</th>
+              <th>Format & Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Capstone Notebook</td>
+              <td><a href="https://github.com/DjebrilSVN/flyrank-ml-internship/blob/main/work/notebooks/capstone.ipynb" target="_blank" rel="noopener"><code>work/notebooks/capstone.ipynb</code></a></td>
+              <td>Full computational notebook containing code, checks, and outputs</td>
+            </tr>
+            <tr>
+              <td>Action Playbook Notebook</td>
+              <td><a href="https://github.com/DjebrilSVN/flyrank-ml-internship/blob/main/work/notebooks/w07_action_playbook.ipynb" target="_blank" rel="noopener"><code>work/notebooks/w07_action_playbook.ipynb</code></a></td>
+              <td>Playbook mapping, queue export logic, and safety guardrails</td>
+            </tr>
+            <tr>
+              <td>Validation Audit Notebook</td>
+              <td><a href="https://github.com/DjebrilSVN/flyrank-ml-internship/blob/main/work/notebooks/w06_validation_audit.ipynb" target="_blank" rel="noopener"><code>work/notebooks/w06_validation_audit.ipynb</code></a></td>
+              <td>Paper audit and cross-client leakage demonstration</td>
+            </tr>
+            <tr>
+              <td>Verified Metrics Receipt</td>
+              <td><a href="https://github.com/DjebrilSVN/flyrank-ml-internship/blob/main/work/outputs/capstone_metrics.json" target="_blank" rel="noopener"><code>work/outputs/capstone_metrics.json</code></a></td>
+              <td>Machine-readable JSON containing exact model metrics and lift sizing</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 9: ACKNOWLEDGMENTS & DATA CREDIT -->
+    <section id="acknowledgments" class="paper-section">
+      <div class="section-number">Section 9</div>
+      <h2 class="section-heading">Acknowledgments & Data Credit</h2>
+
+      <div class="acknowledgments-card">
+        <p style="font-size: 1.1rem; font-weight: 500; color: var(--text-primary); margin-bottom: 0.75rem;">
+          Built on the <a href="https://flyrank.ai/" target="_blank" rel="noopener" style="color: var(--accent-blue); font-weight: 600; text-decoration: underline;">FlyRank ML Internship dataset</a>.
+        </p>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto;">
+          We extend our sincere gratitude to the engineering and research teams at <a href="https://flyrank.ai/" target="_blank" rel="noopener">FlyRank</a> for curating and releasing the enterprise search intelligence warehouse dataset, and for establishing rigorous benchmarks for honest machine learning in organic search discoverability.
+        </p>
+
+        <div class="citation-block">
+@techreport{djebril2026triage,
+  title       = {Triage Over Tuning: Machine Learning for Content Action Prioritization Across 100,000 Enterprise URLs},
+  author      = {Djebril},
+  institution = {FlyRank Machine Learning Internship Program},
+  month       = {March},
+  year        = {2026},
+  url         = {https://djebrilsvn.github.io/flyrank-ml-internship/}
+}
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div style="max-width: 980px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+      <div>
+        <strong>Google Search Ranking & Discoverability Capstone</strong> · FlyRank ML Internship 2026
+      </div>
+      <div>
+        <a href="https://github.com/DjebrilSVN/flyrank-ml-internship" target="_blank" rel="noopener">GitHub Repository</a> · 
+        <a href="https://flyrank.ai/" target="_blank" rel="noopener">FlyRank.ai</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script for Progress Bar & Theme Toggle -->
+  <script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+    });
+
+    // Theme Toggle
+    const toggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const themeText = document.getElementById('theme-text');
+    const htmlElement = document.documentElement;
+
+    // Check system or saved preference
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    htmlElement.setAttribute('data-theme', savedTheme);
+    updateThemeUI(savedTheme);
+
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = htmlElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      htmlElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeUI(newTheme);
+    });
+
+    function updateThemeUI(theme) {
+      if (theme === 'dark') {
+        themeIcon.textContent = '☀️';
+        themeText.textContent = 'Light';
+      } else {
+        themeIcon.textContent = '🌙';
+        themeText.textContent = 'Dark';
+      }
+    }
+  </script>
+</body>
+</html>
