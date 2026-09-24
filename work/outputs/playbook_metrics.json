@@ -1,0 +1,16 @@
+{
+  "total_items_in_playbook": 101441,
+  "active_median_ctr_threshold": 0.286,
+  "action_breakdown": {
+    "optimize_snippet_and_metadata": 33893,
+    "audit_authority_or_prune": 33772,
+    "expand_content_depth": 21448,
+    "boost_striking_distance": 11774,
+    "protect_and_defend": 554
+  },
+  "page1_ctr_deficit_pages": 33893,
+  "page1_impressions_at_stake": 104822588,
+  "current_page1_deficit_clicks": 143622,
+  "projected_page1_clicks_at_median_ctr": 300136,
+  "estimated_monthly_clicks_lift": 156514
+}
